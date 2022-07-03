@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import Card from "./components/Card/Card";
+import styled  from "styled-components/native";
+
+const StyledContainer = styled.View({
+  marginTop: 50,
+  backgroundColor: "#fff",
+  display: "flex",
+  flexDirection: "column",
+});
+
 export default function App() {
   const [data, setData] = useState([]);
 
@@ -22,22 +31,13 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <StyledContainer>
       <Text>IMDB Movie List</Text>
       <View>
         {data && data.map((item, index) => <Card key={index} item={item} />)}
       </View>
 
       <StatusBar style="auto" />
-    </View>
+    </StyledContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 50,
-    backgroundColor: "#fff",
-    display: "flex",
-    flexDirection: "column",
-  },
-});
