@@ -34,10 +34,6 @@ const Card = ({ item }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {},
-  text: {},
-  image: {},
-});
+
 
 export default Card;
