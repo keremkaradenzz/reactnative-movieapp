@@ -11,6 +11,11 @@ const StyledContainer = styled.ScrollView({
   flexDirection: "column",
 });
 
+const StyledText = styled.Text`
+  font-size: 16px;
+  color:aliceblue;
+`;
+
 export default function App() {
   const [data, setData] = useState([]);
 
@@ -33,7 +38,7 @@ export default function App() {
   return (
     <SafeAreaView>
       <StyledContainer>
-      <Text>IMDB Movie List</Text>
+      <StyledText>IMDB Movie List</StyledText>
         <View>
           {data &&
             data.map((item, index) => (
