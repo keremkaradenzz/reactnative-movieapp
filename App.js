@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { Text, ScrollView, View, SafeAreaView } from "react-native";
 import Card from "./components/Card/Card";
-import styled  from "styled-components/native";
+import styled from "styled-components/native";
 
-const StyledContainer = styled.View({
+const StyledContainer = styled.ScrollView({
   marginTop: 50,
   backgroundColor: "#fff",
   display: "flex",
@@ -31,13 +31,18 @@ export default function App() {
   }, []);
 
   return (
-    <StyledContainer>
+    <SafeAreaView>
+      <StyledContainer>
       <Text>IMDB Movie List</Text>
-      <View>
-        {data && data.map((item, index) => <Card key={index} item={item} />)}
-      </View>
+        <View>
+          {data &&
+            data.map((item, index) => (
+              <Card key={index} index={index} item={item} />
+            ))}
+        </View>
 
-      <StatusBar style="auto" />
-    </StyledContainer>
+        <StatusBar style="auto" />
+      </StyledContainer>
+    </SafeAreaView>
   );
 }
