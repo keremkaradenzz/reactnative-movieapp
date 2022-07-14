@@ -14,11 +14,11 @@ const StyledText = styled.Text`
   padding: 5px;
 `;
 
-const StyledImage = styled.Image({
-  width: 50,
-  height: 50,
-});
-
+const StyledImage = styled.Image`
+  width: 50px;
+  height: 50;
+`;
+ß
 const Card = ({ item, index }) => {
   return (
     <StyledContainer marginTop={index}>
