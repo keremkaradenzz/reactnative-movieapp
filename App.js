@@ -12,8 +12,10 @@ const StyledContainer = styled.ScrollView({
 });
 
 const StyledText = styled.Text`
-  font-size: 16px;
-  color:aliceblue;
+  font-size: 20px;
+  color: black;
+  font-weight: 700;
+  text-align: center;
 `;
 
 export default function App() {
@@ -38,14 +40,13 @@ export default function App() {
   return (
     <SafeAreaView>
       <StyledContainer>
-      <StyledText>IMDB Movie List</StyledText>
+        <StyledText>IMDB Movie List</StyledText>
         <View>
           {data &&
             data.map((item, index) => (
               <Card key={index} index={index} item={item} />
             ))}
         </View>
-
         <StatusBar style="auto" />
       </StyledContainer>
     </SafeAreaView>
