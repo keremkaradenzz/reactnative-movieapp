@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { Text, ScrollView, View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, FlatList } from "react-native";
 import Card from "./components/Card/Card";
 import styled from "styled-components/native";
 
-const StyledContainer = styled.ScrollView({
+const StyledContainer = styled.SafeAreaView({
   marginTop: 50,
   backgroundColor: "#fff",
   display: "flex",
-  flexDirection: "column",
+  width: "100%",
 });
 
 const StyledText = styled.Text`
@@ -41,11 +41,13 @@ export default function App() {
     <SafeAreaView>
       <StyledContainer>
         <StyledText>IMDB Movie List</StyledText>
-        <View>
-          {data &&
-            data.map((item, index) => (
-              <Card key={index} index={index} item={item} />
-            ))}
+        <View style={{ flexDirection: "row", width: "100%" }} >
+          <FlatList
+            horizontal={true}
+            data={data}
+            renderItem={Card}
+            keyExtractor={(item) => item.id}
+          />
         </View>
         <StatusBar style="auto" />
       </StyledContainer>
