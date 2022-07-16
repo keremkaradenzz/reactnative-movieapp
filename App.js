@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { View, SafeAreaView, FlatList } from "react-native";
-import Card from "./components/Card/Card";
+import Header from "./components/Header/Header";
 import styled from "styled-components/native";
+import Main from "./components/Main/Main";
 
 const StyledContainer = styled.SafeAreaView({
   marginTop: 50,
@@ -10,13 +10,6 @@ const StyledContainer = styled.SafeAreaView({
   display: "flex",
   width: "100%",
 });
-
-const StyledText = styled.Text`
-  font-size: 20px;
-  color: black;
-  font-weight: 700;
-  text-align: center;
-`;
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -38,19 +31,10 @@ export default function App() {
   }, []);
 
   return (
-    <SafeAreaView>
-      <StyledContainer>
-        <StyledText>IMDB Movie List</StyledText>
-        <View style={{ flexDirection: "row", width: "100%" }} >
-          <FlatList
-            horizontal={true}
-            data={data}
-            renderItem={Card}
-            keyExtractor={(item) => item.id}
-          />
-        </View>
-        <StatusBar style="auto" />
-      </StyledContainer>
-    </SafeAreaView>
+    <StyledContainer>
+      <Header />
+      <Main data={data} />
+      <StatusBar style="auto" />
+    </StyledContainer>
   );
 }
