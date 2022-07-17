@@ -8,7 +8,7 @@ const StyledText = styled.Text`
   text-align: center;
 `;
 const Header = () => {
-  return <StyledText>IMDB Movie List</StyledText>;
+  return <StyledText>Movie App</StyledText>;
 };
 
 export default Header;
