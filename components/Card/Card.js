@@ -43,16 +43,16 @@ const Card = ({ item }) => {
     <StyledContainer>
       <StyledImage
         source={{
-          uri: item.image,
+          uri: "http://image.tmdb.org/t/p/w500" + item.poster_path,
         }}
       />
       <View>
         <StyledText>
-          {item.title} {item.year}
+          {item.original_title} {item.release_date}
         </StyledText>
         <StyledRatingText>
           <Text style={{ fontWeight: "700" }}>Imdb Rating:</Text>
-          {item.imDbRating}
+          {item.vote_average}
         </StyledRatingText>
       </View>
     </StyledContainer>

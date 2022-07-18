@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import Header from "./components/Header/Header";
 import styled from "styled-components/native";
 import Main from "./components/Main/Main";
+import { getData } from "./api";
 
 const StyledTextInput = styled.TextInput`
   padding: 10px;
@@ -28,20 +29,9 @@ export default function App() {
 
   // TODO : CHANGED API because we have reached the limit.
   useEffect(() => {
-    (async () => {
-      const response = await fetch(
-        "https://imdb-api.com/en/API/Top250Movies/k_7k44vs59",
-        {
-          method: "GET",
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        }
-      );
-      const json = await response.json();
-      let newData = json.items.splice(0, 10);
-      setData(newData);
-      console.log(newData);
-    })();
+    const parsedData = getData("3/movie/top_rated");
+    setData(parsedData.results);
+    console.log(newData);
   }, []);
 
   const handleChangeMovie = (text) => {
