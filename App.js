@@ -21,7 +21,9 @@ const StyledContainer = styled.SafeAreaView({
 });
 
 export default function App() {
-  const [data, setData] = useState([]);
+  const [topRated, setTopRated] = useState([]);
+  const [upComingMovie, setUpComingMovie] = useState([]);
+  const [popularMovie, setPopularMovie] = useState([]);
   const [searchData, setSearchData] = useState({
     data: [],
     value: "",
@@ -29,9 +31,23 @@ export default function App() {
 
   // TODO : CHANGED API because we have reached the limit.
   useEffect(() => {
-    const parsedData = getData("3/movie/top_rated");
-    setData(parsedData.results);
-    console.log(newData);
+    const fetchDataTopRated = async () => {
+      const parsedData = await getData("3/movie/top_rated");
+      setTopRated(parsedData.results.slice(0, 10));
+    };
+    fetchDataTopRated();
+
+    const fetchDataUpComing = async () => {
+      let response = await getData("3/movie/upcoming");
+      setUpComingMovie(response.results);
+    };
+    fetchDataUpComing();
+
+    const fetchDataLatest = async () => {
+      let response = await getData("3/movie/popular");
+      setPopularMovie(response.results);
+    };
+    fetchDataLatest();
   }, []);
 
   const handleChangeMovie = (text) => {
@@ -40,13 +56,13 @@ export default function App() {
 
   // TODO : CHANGED API because we have reached the limit.
   const handleSearch = async () => {
-    const response = await fetch(
-      `https://imdb-api.com/en/API/SearchMovie/k_7k44vs59/${searchData.value}`
-    );
-    const mov = await response.json();
-    if (Array.isArray(data)) setSearchData((prev) => ({ ...prev, data: mov }));
+    // const response = await fetch(
+    //   `https://imdb-api.com/en/API/SearchMovie/k_7k44vs59/${searchData.value}`
+    // );
+    // const mov = await response.json();
+    // if (Array.isArray(data)) setSearchData((prev) => ({ ...prev, data: mov }));
   };
-  console.log(searchData);
+
   return (
     <StyledContainer>
       <Header />
@@ -55,7 +71,9 @@ export default function App() {
         onChangeText={(text) => handleChangeMovie(text)}
         onSubmitEditing={() => handleSearch()}
       />
-      <Main data={data} />
+      <Main data={topRated} title={"Top 10 Movies"} />
+      <Main data={upComingMovie} title={"Upcoming Movies"} />
+      <Main data={popularMovie} title={"Populer Movies"} />
       <StatusBar style="auto" />
     </StyledContainer>
   );
