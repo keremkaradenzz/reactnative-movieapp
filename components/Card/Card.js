@@ -27,7 +27,7 @@ const StyledImage = styled.Image`
 `;
 
 const StyledRatingText = styled.Text`
-  color: '#c75b39';
+  color: "#c75b39";
   font-size: 14px;
   padding-left: 5px;
 `;

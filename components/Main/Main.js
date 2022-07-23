@@ -5,7 +5,7 @@ import styled from "styled-components/native";
 const StyledText = styled.Text`
   font-size: 16px;
   font-weight: 600;
-  margin-left: 10;
+  margin-left: 10px;
   color:white;
 `;
 
