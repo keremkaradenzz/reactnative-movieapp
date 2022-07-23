@@ -6,34 +6,28 @@ const StyledContainer = styled.View`
   flex-direction: row;
   margin: 10px 0 20px 5px;
   border-radius: 5px;
-  border-width: 1px;
+  background-color: white;
   border-radius: 2px;
-  border-color: #ddd;
-  border-bottom-width: 0;
-  shadow-color: #000;
-  shadow-opacity: 0.8;
-  shadow-radius: 2px;
-  elevation: 1;
   width: 320px;
   height: 105px;
 `;
 
 const StyledText = styled.Text`
-  color: ${(props) => (props.primary ? "white" : "red")};
+  color: ${(props) => (props.primary ? "white" : "#c75b39")};
   padding: 0 50px 5px 5px;
+  font-weight: 600;
   font-size: 18px;
   width: 250px;
 `;
 
 const StyledImage = styled.Image`
   width: 100px;
-  margin-left: 1px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
 `;
 
 const StyledRatingText = styled.Text`
-  color: black;
+  color: '#c75b39';
   font-size: 14px;
   padding-left: 5px;
 `;

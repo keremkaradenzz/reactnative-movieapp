@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { View, FlatList } from "react-native";
 import Card from "../Card/Card";
 import styled from "styled-components/native";
@@ -6,6 +6,7 @@ const StyledText = styled.Text`
   font-size: 16px;
   font-weight: 600;
   margin-left: 10;
+  color:white;
 `;
 
 const Main = ({ data, title }) => {

@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 const StyledText = styled.Text`
   font-size: 20px;
-  color: black;
+  color: white;
   font-weight: 700;
   text-align: center;
 `;

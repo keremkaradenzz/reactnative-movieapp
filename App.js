@@ -4,18 +4,19 @@ import Header from "./components/Header/Header";
 import styled from "styled-components/native";
 import Main from "./components/Main/Main";
 import { getData } from "./api";
-
+import { View } from "react-native";
 const StyledTextInput = styled.TextInput`
   padding: 10px;
   width: 97%;
   border: 0.5px solid gray;
   border-radius: 5px;
   margin-left: 5px;
+  background-color: white;
+  margin-top: 10;
 `;
 
 const StyledContainer = styled.SafeAreaView({
   marginTop: 50,
-  backgroundColor: "#fff",
   display: "flex",
   width: "100%",
 });
@@ -64,6 +65,7 @@ export default function App() {
   };
 
   return (
+    <View style={{backgroundColor:"#c30000"}}>
     <StyledContainer>
       <Header />
       <StyledTextInput
@@ -76,5 +78,6 @@ export default function App() {
       <Main data={popularMovie} title={"Populer Movies"} />
       <StatusBar style="auto" />
     </StyledContainer>
+    </View>
   );
 }
